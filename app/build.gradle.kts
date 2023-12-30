@@ -73,7 +73,14 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
 
 
+    val truthVersion = "1.1.3"
+    val coroutinesVersion = "1.5.2"
+
     testImplementation("junit:junit:4.13.2")
+    testImplementation("com.google.truth:truth:$truthVersion")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
+
+
 
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
