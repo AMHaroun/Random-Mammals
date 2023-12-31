@@ -1,6 +1,7 @@
 package com.example.randommammals.di
 
 import com.example.randommammals.data.RandomMammalsRepository
+import com.example.randommammals.data.RandomMammalsRepositoryImpl
 import com.example.randommammals.network.RandomDuckApiService
 import com.example.randommammals.network.RandomFoxApiService
 import com.example.randommammals.network.TheCatApiService
@@ -36,7 +37,21 @@ object TestModule {
 
     @Provides
     @Singleton
-    fun provideRandomMammalsRepositoryImpl(): RandomMammalsRepository {
+    fun provideFakeRandomMammalsRepository(): FakeRandomMammalsRepository {
         return FakeRandomMammalsRepository()
+    }
+
+    @Provides
+    @Singleton
+    fun provideRandomMammalsRepositoryImpl(
+        duckApi: RandomDuckApiService,
+        foxApi: RandomFoxApiService,
+        theCatApi: TheCatApiService
+    ): RandomMammalsRepository {
+        return RandomMammalsRepositoryImpl(
+            duckApi,
+            foxApi,
+            theCatApi
+        )
     }
 }

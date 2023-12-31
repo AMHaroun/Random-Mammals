@@ -1,9 +1,9 @@
 package com.example.randommammals.viewmodels
 
 import com.example.randommammals.di.FakeRandomMammalsRepository
-import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -32,7 +32,7 @@ class RandomMammalScreenViewModelTest{
 
         val uiState  = viewModel.uiState
 
-        assertThat(uiState is RandomMammalScreenUiState.Success)
+        assertTrue(uiState is RandomMammalScreenUiState.Success)
     }
 
     @Test
@@ -45,7 +45,7 @@ class RandomMammalScreenViewModelTest{
 
         val uiState = viewModel.uiState
 
-        assertThat(uiState is RandomMammalScreenUiState.Error)
+        assertTrue(uiState is RandomMammalScreenUiState.Error)
     }
 
 }
