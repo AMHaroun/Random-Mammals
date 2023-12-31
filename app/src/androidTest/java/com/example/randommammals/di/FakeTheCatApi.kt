@@ -25,7 +25,7 @@ class FakeTheCatApi: TheCatApiService {
         return catList
     }
 
-    fun throwNetworkErrorException(){
-        networkError = true
+    fun toggleNetworkErrorException(){
+        networkError = !networkError
     }
 }

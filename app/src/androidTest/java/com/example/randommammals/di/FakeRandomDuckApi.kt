@@ -14,7 +14,7 @@ class FakeRandomDuckApi : RandomDuckApiService {
         return Duck("This is a duck object!", "https://thisisafakeurl.com")
     }
 
-    fun throwNetworkErrorException(){
-        networkError = true
+    fun toggleNetworkErrorException(){
+        networkError = !networkError
     }
 }

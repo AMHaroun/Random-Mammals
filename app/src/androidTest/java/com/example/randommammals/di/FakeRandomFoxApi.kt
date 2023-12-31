@@ -14,7 +14,7 @@ class FakeRandomFoxApi : RandomFoxApiService{
         return Fox("https://thisisafakeurl.com", "https://thisisafakeurl.com")
     }
 
-    fun throwNetworkErrorException(){
-        networkError = true
+    fun toggleNetworkErrorException(){
+        networkError = !networkError
     }
 }

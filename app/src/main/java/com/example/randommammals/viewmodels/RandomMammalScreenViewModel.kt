@@ -23,7 +23,7 @@ class RandomMammalScreenViewModel @Inject constructor(
     private set
 
     fun getRandomMammal(){
-
+        //TODO
     }
 
     fun saveMammal(){
