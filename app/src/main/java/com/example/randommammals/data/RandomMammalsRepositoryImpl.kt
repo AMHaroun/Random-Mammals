@@ -9,19 +9,34 @@ import com.example.randommammals.network.responses.Fox
 import com.example.randommammals.util.Resource
 
 class RandomMammalsRepositoryImpl(
-    duckDataSource : RandomDuckApiService,
-    foxDataSource: RandomFoxApiService,
-    catDataSource: TheCatApiService,
+    val duckDataSource : RandomDuckApiService,
+    val foxDataSource: RandomFoxApiService,
+    val catDataSource: TheCatApiService,
 ): RandomMammalsRepository {
     override suspend fun getRandomDuck(): Resource<Duck> {
-        TODO("Not yet implemented")
+        val result = try {
+            duckDataSource.getRandomDuck()
+        } catch (e: Exception){
+            return Resource.Error("A network error has occurred", null)
+        }
+        return Resource.Success(result)
     }
 
     override suspend fun getRandomCat(): Resource<Cat> {
-        TODO("Not yet implemented")
+        val result = try {
+            catDataSource.getRandomCat()
+        } catch (e: Exception){
+            return Resource.Error("A network error has occurred", null)
+        }
+        return Resource.Success(result)
     }
 
     override suspend fun getRandomFox(): Resource<Fox> {
-        TODO("Not yet implemented")
+        val result = try {
+            foxDataSource.getRandomFox()
+        } catch (e: Exception){
+            return Resource.Error("A network error has occurred", null)
+        }
+        return Resource.Success(result)
     }
 }
