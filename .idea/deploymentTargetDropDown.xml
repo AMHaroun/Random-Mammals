@@ -2,7 +2,32 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="RandomMammalScreenViewModelTest">
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\ahmed\.android\avd\Resizable_Experimental_API_34.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-01-01T00:05:21.699053200Z" />
+        </State>
+      </entry>
+      <entry key="Tests in 'com.example.randommammals'">
+        <State />
+      </entry>
       <entry key="app">
+        <State />
+      </entry>
+      <entry key="getRandomMammal_networkError_uiStateIsError()">
+        <State />
+      </entry>
+      <entry key="getRandomMammal_uiStateIsSuccess()">
         <State />
       </entry>
     </value>
