@@ -26,6 +26,10 @@ class RandomMammalScreenViewModel @Inject constructor(
     var uiState: RandomMammalScreenUiState by mutableStateOf(RandomMammalScreenUiState.Loading)
     private set
 
+    init {
+        getRandomMammal()
+    }
+
     fun getRandomMammal(){
         when(Random.nextInt(1, 4)){
             1->{
