@@ -20,7 +20,7 @@ class FakeRandomMammalsRepository: RandomMammalsRepository{
         return Resource.Success(result)
     }
 
-    override suspend fun getRandomCat(): Resource<Cat> {
+    override suspend fun getRandomCat(): Resource<List<Cat>> {
         val result = try {
             theCatApi.getRandomCat()
         } catch (e: Exception){

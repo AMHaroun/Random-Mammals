@@ -44,7 +44,7 @@ object AppModule {
     @Singleton
     fun provideTheCatApiService(): TheCatApiService{
         return Retrofit.Builder()
-            .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+            .addConverterFactory(Json{ignoreUnknownKeys = true}.asConverterFactory("application/json".toMediaType()))
             .baseUrl(Constants.THECATAPI_URL)
             .build()
             .create(TheCatApiService::class.java)
