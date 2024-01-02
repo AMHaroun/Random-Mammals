@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.10"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.0"
     id("com.google.dagger.hilt.android")
     kotlin("kapt")
 }
@@ -54,8 +54,11 @@ android {
 
 dependencies {
     val retrofitVersion = "2.9.0"
-    val hiltVersion = "2.49"
-    val okHttpVersion = "4.9.1"
+    val hiltVersion = "2.50"
+    val hiltNavigationVersion = "1.1.0"
+    val okHttpVersion = "4.12.0"
+    val coilVersion = "2.5.0"
+    val composeNavigationVersion = "2.7.6"
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
@@ -66,15 +69,18 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.okhttp3:okhttp:$okHttpVersion")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+    implementation("io.coil-kt:coil-compose:$coilVersion")
+    implementation("androidx.hilt:hilt-navigation-compose:$hiltNavigationVersion")
+    implementation("androidx.navigation:navigation-compose:$composeNavigationVersion")
 
 
     val truthVersion = "1.1.3"
-    val coroutinesVersion = "1.5.2"
+    val coroutinesVersion = "1.7.3"
 
     testImplementation("junit:junit:4.13.2")
     testImplementation("com.google.truth:truth:$truthVersion")
