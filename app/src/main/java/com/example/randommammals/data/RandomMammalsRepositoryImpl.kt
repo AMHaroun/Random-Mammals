@@ -1,12 +1,16 @@
 package com.example.randommammals.data
 
+import android.util.Log
 import com.example.randommammals.network.RandomDuckApiService
 import com.example.randommammals.network.RandomFoxApiService
 import com.example.randommammals.network.TheCatApiService
 import com.example.randommammals.network.responses.Cat
+import com.example.randommammals.network.responses.CatItem
 import com.example.randommammals.network.responses.Duck
 import com.example.randommammals.network.responses.Fox
 import com.example.randommammals.util.Resource
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class RandomMammalsRepositoryImpl(
     val duckDataSource : RandomDuckApiService,
@@ -15,17 +19,23 @@ class RandomMammalsRepositoryImpl(
 ): RandomMammalsRepository {
     override suspend fun getRandomDuck(): Resource<Duck> {
         val result = try {
-            duckDataSource.getRandomDuck()
+            withContext(Dispatchers.IO){
+                duckDataSource.getRandomDuck()
+            }
         } catch (e: Exception){
+            Log.d("DEBUG","${e.message} DUCK")
             return Resource.Error("A network error has occurred", null)
         }
         return Resource.Success(result)
     }
 
-    override suspend fun getRandomCat(): Resource<Cat> {
+    override suspend fun getRandomCat(): Resource<List<Cat>> {
         val result = try {
-            catDataSource.getRandomCat()
+            withContext(Dispatchers.IO) {
+                catDataSource.getRandomCat()
+            }
         } catch (e: Exception){
+            Log.d("DEBUG","${e.message} CAT")
             return Resource.Error("A network error has occurred", null)
         }
         return Resource.Success(result)
@@ -33,8 +43,11 @@ class RandomMammalsRepositoryImpl(
 
     override suspend fun getRandomFox(): Resource<Fox> {
         val result = try {
-            foxDataSource.getRandomFox()
+            withContext(Dispatchers.IO) {
+                foxDataSource.getRandomFox()
+            }
         } catch (e: Exception){
+            Log.d("DEBUG","${e.message} FOX")
             return Resource.Error("A network error has occurred", null)
         }
         return Resource.Success(result)
