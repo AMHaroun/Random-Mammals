@@ -25,7 +25,6 @@ import coil.compose.AsyncImage
 import com.example.randommammals.R
 import com.example.randommammals.viewmodels.RandomMammalScreenUiState
 import com.example.randommammals.viewmodels.RandomMammalScreenViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
 fun RandomMammalScreen(
@@ -88,6 +87,7 @@ fun MammalImage(
         model = imageUrl,
         contentDescription = null,
         contentScale = ContentScale.Crop,
+        placeholder = painterResource(id = R.drawable.placeholder_image),
         modifier = modifier
             .size(300.dp)
             .clip(RoundedCornerShape(32.dp))
