@@ -36,7 +36,7 @@ class RandomMammalScreenViewModel @Inject constructor(
     fun getRandomMammal() {
         viewModelScope.launch {
             val result = when (Random.nextInt(1, 4)) {
-                1 -> repository.getRandomCat()
+                1 -> repository.getRandomDuck()
                 2 -> repository.getRandomFox()
                 3 -> repository.getRandomDuck()
                 else -> throw IllegalArgumentException("Invalid random number")
