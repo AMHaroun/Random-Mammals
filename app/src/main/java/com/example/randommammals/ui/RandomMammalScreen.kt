@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -32,31 +33,40 @@ fun RandomMammalScreen(
     viewModel: RandomMammalScreenViewModel = hiltViewModel(),
 ){
     val uiState = viewModel.uiState
-    
+
     Column(
         modifier = modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
 
-        Image(
-            painter = painterResource(id = R.drawable.baseline_360),
-            contentDescription = null,
-            modifier = Modifier.padding(bottom = 32.dp)
-        )
+        Column(
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Spacer(modifier = Modifier.size(60.dp))
+            Image(
+                painter = painterResource(id = R.drawable.baseline_360),
+                contentDescription = null,
+                modifier = Modifier.padding(bottom = 32.dp)
+            )
+            Spacer(modifier = Modifier.size(60.dp))
 
-        when(uiState) {
-            is RandomMammalScreenUiState.Success-> {
-                MammalImage(imageUrl = uiState.imageUrl)
-            }
-            is RandomMammalScreenUiState.Loading->{
-                CircularProgressIndicator()
-            }
-            is RandomMammalScreenUiState.Error->{
-                Image(
-                    painter = painterResource(id = R.drawable.broken_image),
-                    contentDescription = null
-                )
+            when (uiState) {
+                is RandomMammalScreenUiState.Success -> {
+                    MammalImage(imageUrl = uiState.imageUrl)
+                }
+
+                is RandomMammalScreenUiState.Loading -> {
+                    CircularProgressIndicator()
+                }
+
+                is RandomMammalScreenUiState.Error -> {
+                    Image(
+                        painter = painterResource(id = R.drawable.broken_image),
+                        contentDescription = null
+                    )
+                }
             }
         }
 
@@ -65,7 +75,7 @@ fun RandomMammalScreen(
                 .fillMaxWidth()
                 .padding(32.dp),
             horizontalArrangement = Arrangement.SpaceEvenly
-            ) {
+        ) {
             NextMammalButton {
                 viewModel.getRandomMammal()
             }
@@ -74,9 +84,14 @@ fun RandomMammalScreen(
             }
         }
 
-    }
+        BottomNavigationBar(
+            home = {},
+            saved = {}
+        )
 
+    }
 }
+
 
 @Composable
 fun MammalImage(
