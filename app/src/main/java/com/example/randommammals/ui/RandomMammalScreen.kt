@@ -22,6 +22,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.example.randommammals.R
 import com.example.randommammals.viewmodels.RandomMammalScreenUiState
@@ -31,6 +32,7 @@ import com.example.randommammals.viewmodels.RandomMammalScreenViewModel
 fun RandomMammalScreen(
     modifier: Modifier = Modifier,
     viewModel: RandomMammalScreenViewModel = hiltViewModel(),
+    navController: NavController
 ){
     val uiState = viewModel.uiState
 
@@ -86,7 +88,7 @@ fun RandomMammalScreen(
 
         BottomNavigationBar(
             home = {},
-            saved = {}
+            saved = { navController.navigate("SavedMammalsScreen")}
         )
 
     }

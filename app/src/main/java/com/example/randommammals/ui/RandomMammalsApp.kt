@@ -14,10 +14,10 @@ fun RandomMammalsApp(
     NavHost(navController = navController, startDestination = "RandomMammalScreen", modifier = modifier) {
 
         composable("RandomMammalScreen") {
-            RandomMammalScreen()
+            RandomMammalScreen( navController = navController )
         }
         composable("SavedMammalsScreen") {
-            SavedMammalsScreen()
+            SavedMammalsScreen( navController = navController )
         }
 
     }

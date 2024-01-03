@@ -1,7 +1,9 @@
 package com.example.randommammals.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -23,6 +25,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.example.randommammals.R
 import com.example.randommammals.viewmodels.SavedMammalsScreenViewModel
@@ -30,30 +33,39 @@ import com.example.randommammals.viewmodels.SavedMammalsScreenViewModel
 @Composable
 fun SavedMammalsScreen(
     modifier: Modifier = Modifier,
-    viewModel: SavedMammalsScreenViewModel = hiltViewModel()
+    viewModel: SavedMammalsScreenViewModel = hiltViewModel(),
+    navController: NavController
 ){
     val uiState = viewModel.uiState
 
-    Column(
-        modifier = modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Image(
-            painter = painterResource(id = R.drawable.baseline_360),
-            contentDescription = null,
-            modifier = Modifier.padding(bottom = 32.dp)
-        )
-        
-        LazyVerticalGrid(columns = GridCells.Adaptive(128.dp)){
-            items(uiState.savedMammals.size){
-               SavedMammalCard(
-                   saveImageToPhotos = {  },
-                   imageUrl = uiState.savedMammals[it],
-                   modifier = Modifier.padding(8.dp)
-               )
-            }
-        }
+    Box(contentAlignment = Alignment.TopCenter) {
 
+        Column(
+            modifier = modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.baseline_360),
+                contentDescription = null,
+                modifier = Modifier.padding(bottom = 32.dp)
+            )
+            Spacer(modifier = Modifier.size(50.dp))
+
+            LazyVerticalGrid(columns = GridCells.Adaptive(128.dp)) {
+                items(uiState.savedMammals.size) {
+                    SavedMammalCard(
+                        saveImageToPhotos = { },
+                        imageUrl = uiState.savedMammals[it],
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
+            }
+
+        }
+            BottomNavigationBar(
+                home = { navController.navigate("RandomMammalScreen") },
+                modifier = Modifier.align(Alignment.BottomEnd)
+            ) { }
     }
 }
 
