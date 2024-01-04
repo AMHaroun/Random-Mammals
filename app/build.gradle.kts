@@ -59,6 +59,7 @@ dependencies {
     val okHttpVersion = "4.12.0"
     val coilVersion = "2.5.0"
     val composeNavigationVersion = "2.7.6"
+    val roomVersion = "2.6.1"
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
@@ -77,6 +78,9 @@ dependencies {
     implementation("io.coil-kt:coil-compose:$coilVersion")
     implementation("androidx.hilt:hilt-navigation-compose:$hiltNavigationVersion")
     implementation("androidx.navigation:navigation-compose:$composeNavigationVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
 
 
     val truthVersion = "1.2.0"
