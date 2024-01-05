@@ -4,9 +4,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class SavedMammal(
+data class Mammal(
+    val url: String,
     @PrimaryKey
-    val id: Int,
-    val url: String
+    val id: Int = 0
 )
 
