@@ -1,11 +1,11 @@
-package com.example.randommammals.dao
+package com.example.randommammals.data.local.room.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.randommammals.entity.Mammal
+import com.example.randommammals.data.local.room.entity.Mammal
 import kotlinx.coroutines.flow.Flow
 
 @Dao
