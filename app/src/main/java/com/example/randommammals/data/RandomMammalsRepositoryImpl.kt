@@ -1,11 +1,11 @@
 package com.example.randommammals.data
 
 import android.util.Log
+import com.example.randommammals.data.local.room.dao.MammalDao
 import com.example.randommammals.network.RandomDuckApiService
 import com.example.randommammals.network.RandomFoxApiService
 import com.example.randommammals.network.TheCatApiService
 import com.example.randommammals.network.responses.Cat
-import com.example.randommammals.network.responses.CatItem
 import com.example.randommammals.network.responses.Duck
 import com.example.randommammals.network.responses.Fox
 import com.example.randommammals.util.Resource
@@ -16,6 +16,7 @@ class RandomMammalsRepositoryImpl(
     val duckDataSource : RandomDuckApiService,
     val foxDataSource: RandomFoxApiService,
     val catDataSource: TheCatApiService,
+    val mammalDao: MammalDao
 ): RandomMammalsRepository {
     override suspend fun getRandomDuck(): Resource<Duck> {
         val result = try {
