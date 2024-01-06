@@ -57,14 +57,22 @@ class RandomMammalsRepositoryImpl(
     }
 
     override suspend fun saveMammal(url: String) {
-        TODO("Not yet implemented")
+
+        val result = mammalDao.getMammalByUrl(url)
+        if (result != null) {
+            mammalDao.insertMammal(result)
+        }
+
     }
 
     override suspend fun deleteMammal(url: String) {
-        TODO("Not yet implemented")
+        val result = mammalDao.getMammalByUrl(url)
+        if (result != null) {
+            mammalDao.deleteMammal(result)
+        }
     }
 
     override fun getMammals(): Flow<List<Mammal>> {
-        TODO("Not yet implemented")
+        return mammalDao.getMammals()
     }
 }
