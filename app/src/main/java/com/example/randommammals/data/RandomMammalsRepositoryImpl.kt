@@ -2,6 +2,7 @@ package com.example.randommammals.data
 
 import android.util.Log
 import com.example.randommammals.data.local.room.dao.MammalDao
+import com.example.randommammals.data.local.room.entity.Mammal
 import com.example.randommammals.network.RandomDuckApiService
 import com.example.randommammals.network.RandomFoxApiService
 import com.example.randommammals.network.TheCatApiService
@@ -10,6 +11,7 @@ import com.example.randommammals.network.responses.Duck
 import com.example.randommammals.network.responses.Fox
 import com.example.randommammals.util.Resource
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 
 class RandomMammalsRepositoryImpl(
@@ -52,5 +54,17 @@ class RandomMammalsRepositoryImpl(
             return Resource.Error("A network error has occurred", null)
         }
         return Resource.Success(result)
+    }
+
+    override suspend fun saveMammal(url: String) {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun deleteMammal(url: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getMammals(): Flow<List<Mammal>> {
+        TODO("Not yet implemented")
     }
 }
