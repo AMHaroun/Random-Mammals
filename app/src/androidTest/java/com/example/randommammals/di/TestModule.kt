@@ -48,12 +48,13 @@ object TestModule {
 
     @Provides
     @Singleton
-    fun provdeMammalDatabase(@ApplicationContext appContext: Context): MammalDatabase {
-        return Room.databaseBuilder(
+    fun provideMammalDatabase(@ApplicationContext appContext: Context): MammalDatabase {
+        return Room.inMemoryDatabaseBuilder(
             appContext,
             MammalDatabase::class.java,
-            "MammalDatabase"
-        ).build()
+        )
+            .allowMainThreadQueries()
+            .build()
     }
 
     @Provides
