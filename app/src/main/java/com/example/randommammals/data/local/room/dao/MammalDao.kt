@@ -19,4 +19,8 @@ interface MammalDao {
 
     @Query("SELECT * FROM mammal")
     fun getMammals(): Flow<List<Mammal>>
+
+    @Query("SELECT * FROM Mammal WHERE url = :desiredUrl")
+    suspend fun getMammalByUrl(desiredUrl: String): Mammal?
+
 }
