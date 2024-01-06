@@ -63,7 +63,9 @@ class RandomMammalScreenViewModel @Inject constructor(
         }
     }
 
-    fun saveMammal(){
-        //TODO
+    fun saveMammal(mammalUrl: String){
+        viewModelScope.launch {
+            repository.saveMammal(mammalUrl)
+        }
     }
 }
