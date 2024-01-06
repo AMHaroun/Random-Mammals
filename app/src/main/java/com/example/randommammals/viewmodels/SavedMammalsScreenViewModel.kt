@@ -19,6 +19,10 @@ class SavedMammalsScreenViewModel @Inject constructor(
 
     var uiState: SavedMammalsScreenUiState by mutableStateOf(SavedMammalsScreenUiState(listOf()))
     private set
+
+    init {
+        getSavedMammals()
+    }
     fun getSavedMammals(){
         viewModelScope.launch {
             repository.getMammals().collect{ mammals ->

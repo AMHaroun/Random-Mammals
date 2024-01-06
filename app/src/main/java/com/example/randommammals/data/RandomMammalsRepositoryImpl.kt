@@ -58,15 +58,14 @@ class RandomMammalsRepositoryImpl(
 
     override suspend fun saveMammal(url: String) {
 
-        val result = mammalDao.getMammalByUrl(url)
-        if (result != null) {
-            mammalDao.insertMammal(result)
-        }
+        val mammal = Mammal(url = url)
+
+        mammalDao.insertMammal(mammal)
 
     }
 
     override suspend fun deleteMammal(url: String) {
-        val result = mammalDao.getMammalByUrl(url)
+        val result = mammalDao.getMammalByUrl(url,)
         if (result != null) {
             mammalDao.deleteMammal(result)
         }

@@ -82,7 +82,9 @@ fun RandomMammalScreen(
                 viewModel.getRandomMammal()
             }
             SaveMammalButton {
-                viewModel.saveMammal()
+                if(uiState is RandomMammalScreenUiState.Success) {
+                    viewModel.saveMammal(uiState.imageUrl)
+                }
             }
         }
 

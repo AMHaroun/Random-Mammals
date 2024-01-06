@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Mammal(
     val url: String,
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Int = 0
 )
 
