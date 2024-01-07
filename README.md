@@ -1,10 +1,26 @@
 # Random Mammals Android App
 
-**Save feature is still under development**
+<p align = "center">
+   <img src = "https://img.shields.io/badge/Build-Passing-green">
+   <a href="https://github.com/AMHaroun" target="_blank">
+        <img src="https://img.shields.io/badge/Github-AMHaroun-blue?logo=github" alt="GitHub profile">
+    </a>
+    <a href="https://www.linkedin.com/in/ahmed-haroun-53412b267/" target="_blank">
+        <img src="https://img.shields.io/badge/LinkedIn-AMHaroun-blue?logo=linkedin" alt="LinkedIn profile">
+    </a>
+    <img alt="GitHub last commit (by committer)" src="https://img.shields.io/github/last-commit/AMHaroun/Random-Mammals">
+</p>
 
 ## Overview
 
 Welcome to Random Mammals, a delightful Android app that brings joy to users by showcasing random cute mammal images. This app is designed to provide users with a daily dose of cuteness while also allowing them to save their favorite images. The app combines multiple APIs to fetch mammal images, follows the MVVM architecture for a clean and scalable codebase, and utilizes a Room Database for efficient data storage.
+
+## Screenshots
+
+<p align = "center">
+    <img src="https://i.imgur.com/SJl97XX.png" height = "605">
+    <img src="https://i.imgur.com/adlB37x.png" height = "605">
+</p>
 
 ## Features
 
@@ -69,13 +85,6 @@ We welcome contributions from the community to make Random Mammals even better. 
 5. Create a pull request.
 
 We appreciate your contributions!
-
-## Screenshots
-
-<!-- Add screenshots of the app here -->
-<p align = "center">
-    <img src="https://i.imgur.com/DE7p9nK.png">
-</p>
 
 ## License
 
