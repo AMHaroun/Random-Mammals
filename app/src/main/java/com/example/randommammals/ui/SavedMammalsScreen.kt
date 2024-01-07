@@ -51,7 +51,7 @@ fun SavedMammalsScreen(
             )
             Spacer(modifier = Modifier.size(50.dp))
 
-            LazyVerticalGrid(columns = GridCells.Adaptive(128.dp)) {
+            LazyVerticalGrid(columns = GridCells.Adaptive(128.dp), modifier = Modifier.padding(bottom = 128.dp)) {
                 items(uiState.savedMammals.size) {
                     SavedMammalCard(
                         saveImageToPhotos = { },
